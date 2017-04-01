@@ -1,0 +1,9 @@
+# node js
+webapi/node_modules/
+
+# public images path
+webapi/public/
+
+# vs
+.vscode
+
