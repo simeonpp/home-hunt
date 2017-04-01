@@ -23,7 +23,8 @@ const logger = {
         SYSTEM: 'system',
         INFO: 'info',
         DEBUG: 'debug',
-        ERROR: 'error'
+        ERROR: 'error',
+        REQUEST: 'request'
     }
 }
 
