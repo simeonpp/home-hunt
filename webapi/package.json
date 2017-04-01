@@ -1,0 +1,19 @@
+{
+  "name": "webapi",
+  "version": "0.0.1",
+  "description": "very simple webapi to support API calls for iOS iPhone Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Simeon Petkov",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^16.1.0",
+    "inert": "^4.1.0",
+    "mysql": "^2.13.0",
+    "promise-mysql": "^3.0.0",
+    "uuid": "^3.0.1"
+  }
+}
