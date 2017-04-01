@@ -1,13 +1,22 @@
 'use strict';
 
 var config = require('./config');
-var authenticationController = require('./controllers/authentication');
+var controllers = require('./controllers');
 var logger = require('./logger');
 
 const apiEndpoints = [
-    { method: 'POST', path: '/register', config: authenticationController.register },
-    { method: 'POST', path: '/login', config: authenticationController.login },
-    { method: 'POST', path: '/logout', config: authenticationController.logout }
+    // Authentication
+    { method: 'POST', path: '/register', config: controllers.authentication.register },
+    { method: 'POST', path: '/login', config: controllers.authentication.login },
+    { method: 'POST', path: '/logout', config: controllers.authentication.logout },
+
+    // Agents
+    { method: 'GET', path: '/agents', config: controllers.agent.getAll },
+    { method: 'GET', path: '/agents/{id}', config: controllers.agent.getById },
+
+    // Adds
+    { method: 'GET', path: '/adds', config: controllers.add.getAll },
+    { method: 'GET', path: '/adds/{id}', config: controllers.add.getById }
 ].map(function(endpoint) { // add api url prefix to each route path
     endpoint.path = `${config.application.apiUrl}${endpoint.path}`
     return endpoint
