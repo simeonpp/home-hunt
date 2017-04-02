@@ -1,11 +1,11 @@
 import UIKit
 
 class RegisterViewController: UIViewController, UsersDataDelegate {
+    var usersData: UsersData?
+    
     @IBOutlet weak var vTextFieldUsername: UITextField!
     @IBOutlet weak var vTextFieldPassword: UITextField!
     @IBOutlet weak var vTextFieldConfirmPassword: UITextField!
-    
-    var usersData: UsersData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +27,15 @@ class RegisterViewController: UIViewController, UsersDataDelegate {
         }
         
         let userToRegister = User(withUsername: self.vTextFieldUsername.text!, andPassword: self.vTextFieldPassword.text!)
+        self.showLoading()
         self.usersData?.register(user: userToRegister)
     }
     
     func didRegistered(user: User) {
+        let weakSelf = self
         DispatchQueue.main.async {
-            self.showIncorrectRegistrationError(withTitle: "User registered", andMessage: "User successfully added", andHandler: { action in
+            weakSelf.hideLoading()
+            weakSelf.showInformDialog(withTitle: "User registered", andMessage: "User successfully added", andHandler: { action in
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                 let loginVC = storyBoard.instantiateViewController(withIdentifier: "loginScreen")
                 self.present(loginVC, animated: true, completion: nil)
@@ -41,13 +44,6 @@ class RegisterViewController: UIViewController, UsersDataDelegate {
     }
     
     func showIncorrectRegistrationError(withMessage errorMessage: String) {
-        self.showIncorrectRegistrationError(withTitle: "Invalid input", andMessage: errorMessage, andHandler: { action in })
-    }
-    
-    func showIncorrectRegistrationError(withTitle title: String, andMessage errorMessage: String, andHandler handler: @escaping ((UIAlertAction) -> Void)) -> Void {
-        let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: handler)
-        alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        self.showInformDialog(withTitle: "Invalid input", andMessage: errorMessage, andHandler: { action in })
     }
 }

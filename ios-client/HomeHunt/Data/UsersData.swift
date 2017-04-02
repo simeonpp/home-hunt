@@ -20,7 +20,14 @@ class UsersData: HttpRequesterDelegate {
             let user = User(withDict: resultAsDict)
             self.delegate?.didRegistered(user: user)
         case UsersDataIdentifiers.login.rawValue:
-            self.delegate?.didLogin(cookie: resultAsDict["cookie"]! as! String)
+            let error = resultAsDict["error"]
+            if (error == nil) {
+                self.delegate?.didLogin(cookie: resultAsDict["cookie"]! as! String, error: nil)
+            } else {
+                let errorDict = error as! Dictionary<String, Any>
+                let errorMessage = errorDict["message"] as! String
+                self.delegate?.didLogin(cookie: "__no_cookie__", error: errorMessage)
+            }
         default:
             return
         }

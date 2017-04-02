@@ -7,3 +7,4 @@ webapi/public/
 # vs
 .vscode
 
+.DS_Store

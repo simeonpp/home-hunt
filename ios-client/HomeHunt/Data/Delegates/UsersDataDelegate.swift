@@ -2,7 +2,7 @@ import Foundation
 
 protocol UsersDataDelegate {
     func didRegistered(user: User)
-    func didLogin(cookie: String)
+    func didLogin(cookie: String, error: String?)
 }
 
 extension UsersDataDelegate {
@@ -10,7 +10,7 @@ extension UsersDataDelegate {
         
     }
     
-    func didLogin(cookie: String) {
+    func didLogin(cookie: String, error: String?) {
         
     }
 }
