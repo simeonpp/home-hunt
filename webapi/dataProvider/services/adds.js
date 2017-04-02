@@ -12,7 +12,7 @@ var getConnection = function() {
 var getAll = function() {
     var promise = new Promise(function(resolve, reject) {
         var query = 'SELECT a.id, addt.`type`, adds.display as `status`, a.rating, a.ratingCount, a.description, a.town, a.address, a.dateCreated, ' +
-                    'agent.firstName, agent.lastName, agent.phone, ' +
+                    'agent.firstName as `agentFirstName`, agent.lastName as `agentLastName`, agent.phone as `agentPhone`, ' +
                     '(SELECT filename FROM adds_images addI WHERE addI.addId = a.id AND addI.isMain = 1 LIMIT 1) as imageFilename ' +
                     'FROM adds a ' + 
                     'INNER JOIN adds_types addt ON a.`type` = addt.id ' +
@@ -35,7 +35,7 @@ var getById = function(addId) {
     var promise = new Promise(function(resolve, reject) {
         var query = 'SELECT a.id, addt.`type`, adds.display as `status`, a.rating, a.ratingCount, a.description, a.town, a.address, a.dateCreated, ' +
                         'agent.company as `agentCompany`, agent.phone as `agentPhone`, agent.email as `agentEmail`, agent.firstName as `agentFirstName`, ' +
-                        'agent.rating as `agentRating`, agent.ratingCount as `agentRatingCount`, agent.lastName as `agentLastName`, ' +
+                        'agent.id as `agentId`, agent.rating as `agentRating`, agent.ratingCount as `agentRatingCount`, agent.lastName as `agentLastName`, ' +
                         'agent.website as `agentWebsite` ' +
                     'FROM adds a ' +
                     'INNER JOIN adds_types addt ON a.`type` = addt.id ' +

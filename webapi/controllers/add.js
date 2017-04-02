@@ -15,7 +15,6 @@ var getAll = {
             .then(function(adds) {
                 // Calculate rating
                 adds = adds.map(function(add) {
-                    console.log(add);
                     helpers.mapRating(add);
                     return add;
                 });
