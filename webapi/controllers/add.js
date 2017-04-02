@@ -19,7 +19,9 @@ var getAll = {
                     helpers.mapRating(add);
                     return add;
                 });
-                reply(adds);
+                reply({
+                    result: adds
+                });
             })
             .catch(function(error) {
                 reply({ error: errors.getError() }); // default error
@@ -52,11 +54,11 @@ var getById = {
             })
             .then(function(addAttributesDate) {
                 attributes = addAttributesDate;
+                add.images = images;
+                add.attributes = attributes;
+                add.notes = notes
                 reply({
-                    add,
-                    images,
-                    attributes,
-                    notes
+                    result: add
                 });
             })
             .catch(function(error) {
