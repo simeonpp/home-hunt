@@ -1,0 +1,6 @@
+framework module Pods_HomeHunt {
+  umbrella header "Pods-HomeHunt-umbrella.h"
+
+  export *
+  module * { export * }
+}
