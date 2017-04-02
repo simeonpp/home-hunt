@@ -1,18 +1,23 @@
 'use strict';
-var logger = require('../logger');
-var tags = require('../config').logger.tags;
-var errorHandler = require('../errorHandler');
 var authenticationServices = require('../dataProvider').services.authentication;
 
 var register = {
     handler: function(request, reply) {
-        logger.log(`register - ${request.payload.username}`, tags.REQUEST);
+        var username = request.payload.username;
+        var password = request.payload.password;
+
+        authenticationServices.register(username, password)
+            .then(function(registerResult) {
+                return reply(registerResult);
+            })
+            .catch(function(error) {
+                reply({error: true})
+            })
     }
-}
+};
 
 var login = {
     handler: function(request, reply) {
-        logger.log(`login - ${request.payload.username}`, tags.REQUEST);
         var username = request.payload.username;
         var password = request.payload.password;
 
@@ -37,11 +42,10 @@ var login = {
                 });
             })
     }
-}
+};
 
 var logout = {
     handler: function(request, reply) {
-        logger.log(`logout - ${request.headers['x-cookie']}`, tags.REQUEST);
         var cookie = request.headers['x-cookie'];
 
         if (cookie) {
@@ -61,7 +65,7 @@ var logout = {
             reply({})
         }
     }
-}
+};
 
 module.exports = {
     register,

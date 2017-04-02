@@ -18,7 +18,16 @@ var register = function(username, password) {
         let query = `INSERT INTO users (username, password) VALUES ("${username}", "${password}")`;
         getConnection().query(query)
             .then(function(registerDbResult) {
-
+                if (registerDbResult && registerDbResult.affectedRows === 1) {
+                    // Simulate loading
+                    setTimeout(function() {
+                        resolve({
+                            username: username
+                        })
+                    }, 2000)
+                } else {
+                    reject(errors.getError('PortMySQL.invalidResult'));
+                }
             })
             .catch(function(error) {
                 errorHandler.handleError(error);
@@ -102,11 +111,29 @@ var deleteSessionByCookie = function(cookie) {
     return promise;
 };
 
+var checkSessions = function(cookie) {
+    var promise = new Promise(function(resolve, reject) {
+        let query = 'SELECT u.username, cookie, s.expiresDate ' +
+                    'FROM sessions s ' +
+                    'INNER JOIN users u ON u.id = s.userId ' +
+                    `WHERE cookie = "${cookie}"`;
+        getConnection().query(query)
+            .then(function(sessionResult) {
+                resolve(sessionResult);
+            })
+            .catch(function(error) {
+                reject(error);
+            })
+    });
+
+    return promise;
+};
 
 module.exports = {
     register,
     login,
     createSession,
     deleteSession,
-    deleteSessionByCookie
+    deleteSessionByCookie,
+    checkSessions
 };
