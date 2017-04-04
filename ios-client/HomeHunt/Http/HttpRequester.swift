@@ -61,6 +61,11 @@ class HttpRequester: HttpRequesterBase {
         self.send(withCRUDMethod: .getAll, toUrl: urlString, withBody: nil, andHeaders: newHeaders, identifier: identifier ?? defaultIdentifier)
     }
     
+    func getDetails(fromUrl urlString: String, withHeaders headers: Dictionary<String, String>?, identifier: String?) {
+        let newHeaders = headers ?? [:]
+        self.send(withCRUDMethod: .get, toUrl: urlString, withBody: nil, andHeaders: newHeaders, identifier: identifier ?? defaultIdentifier)
+    }
+    
     func post(toUrl urlString: String, withBody body: Any, andHeaders headers: Dictionary<String, String>?, identifier: String?) {
         let newHeaders = headers ?? [:]
         self.send(withCRUDMethod: .post, toUrl: urlString, withBody: body, andHeaders: newHeaders, identifier: identifier ?? defaultIdentifier)
