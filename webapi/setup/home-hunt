@@ -1,0 +1,246 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Telerik/HomeHunt",
+		"_postman_id": "4a1f5934-1fbf-a464-6f32-5fab07d033c8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/login",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"kolio\",\n\t\"password\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/logout",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/logout",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-cookie",
+						"value": "08574e67-cb05-4471-b1a5-afcab3a749da",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/register",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"ivan3\",\n\t\"password\": \"123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/agents",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/agents",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/agents/id",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/agents/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/adds",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/adds",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/adds/id",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/adds/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/appointments",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/appointments",
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-cookie",
+						"value": "3cd8ad4c-cbe7-487b-99b9-e0673f4b99e2",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/appointments/id",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/appointments/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-cookie",
+						"value": "3cd8ad4c-cbe7-487b-99b9-e0673f4b99e2",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/appointments/id",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/appointments/4",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-cookie",
+						"value": "3cd8ad4c-cbe7-487b-99b9-e0673f4b99e2",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/appointments",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/appointments",
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-cookie",
+						"value": "3cd8ad4c-cbe7-487b-99b9-e0673f4b99e2",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 2,\n\t\"note\": \"adasdasdw2777ww\",\n\t\"timestamp\": 1491313759597\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/appointments/id",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/appointments/38",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "x-cookie",
+						"value": "3cd8ad4c-cbe7-487b-99b9-e0673f4b99e2",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"note\": \"sdfgfdgdfgdfgdf\",\n\t\"timestamp\": 2491313759597\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/api/reviews",
+			"request": {
+				"url": "http://192.168.0.103:8000/api/reviews/56",
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-cookie",
+						"value": "3cd8ad4c-cbe7-487b-99b9-e0673f4b99e2",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"addId\": 1,\n\t\"addRating\": 4,\n\t\"addNote\": \"apartamne note\",\n\t\"agentId\": 1,\n\t\"agentRating\": 3,\n\t\"agentNote\": \"agent nite\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
