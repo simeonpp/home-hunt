@@ -15,7 +15,6 @@ class HttpRequester: HttpRequesterBase {
             } catch {
                 // TODO: throw error
             }
-            
         }
         
         headers.forEach() {
@@ -28,19 +27,27 @@ class HttpRequester: HttpRequesterBase {
                 // TODO: throw error
             }
             
-            do {
-                let obj = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
-                switch(crudMethod) {
-                case .getAll:
-                    weakSelf?.delegate?.didCompleteGetAll(result: obj, identifier: identifier)
-                case .get:
-                        weakSelf?.delegate?.didCompleteGet(result: obj, identifier: identifier)
-                case .post:
-                    weakSelf?.delegate?.didCompletePost(result: obj, identifier: identifier)
+            if (crudMethod == HttpCRUDMethod.get) {
+                weakSelf?.delegate?.didCompleteGet(result: data!, identifier: identifier)
+            } else {
+                do {
+                    let parsedJSONData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments)
+                    switch(crudMethod) {
+                    case .getAllJSON:
+                        weakSelf?.delegate?.didCompleteGetAllJSON(result: parsedJSONData, identifier: identifier)
+                    case .getJSON:
+                        weakSelf?.delegate?.didCompleteGetJSON(result: parsedJSONData, identifier: identifier)
+                    case .postJSON:
+                        weakSelf?.delegate?.didCompletePostJSON(result: parsedJSONData, identifier: identifier)
+                    case .deleteJSON:
+                        weakSelf?.delegate?.didCompleteDeleteJSON(result: parsedJSONData, identifier: identifier)
+                    default:
+                        break;
+                    }
+                    
+                } catch {
+                    // TODO: throw error
                 }
-                
-            } catch {
-                // TODO: throw error
             }
         }
         
@@ -49,33 +56,49 @@ class HttpRequester: HttpRequesterBase {
     
     func mapCRUDMethodToHttpMethod(_ crudMethod: HttpCRUDMethod) -> String {
         switch crudMethod {
-        case .getAll:
+        case .getAllJSON:
             return "GET"
+        case .getJSON:
+            return "GET"
+        case .postJSON:
+            return "POST"
+        case .deleteJSON:
+            return "DELETE"
         default:
             return crudMethod.rawValue
         }
     }
     
-    func getAll(fromUrl urlString: String, withHeaders headers: Dictionary<String, String>?, identifier: String?) {
-        let newHeaders = headers ?? [:]
-        self.send(withCRUDMethod: .getAll, toUrl: urlString, withBody: nil, andHeaders: newHeaders, identifier: identifier ?? defaultIdentifier)
-    }
-    
-    func getDetails(fromUrl urlString: String, withHeaders headers: Dictionary<String, String>?, identifier: String?) {
+    func get(fromUrl urlString: String, withHeaders headers: Dictionary<String, String>?, identifier: String?) {
         let newHeaders = headers ?? [:]
         self.send(withCRUDMethod: .get, toUrl: urlString, withBody: nil, andHeaders: newHeaders, identifier: identifier ?? defaultIdentifier)
     }
     
+    func getAll(fromUrl urlString: String, withHeaders headers: Dictionary<String, String>?, identifier: String?) {
+        let newHeaders = headers ?? [:]
+        self.send(withCRUDMethod: .getAllJSON, toUrl: urlString, withBody: nil, andHeaders: newHeaders, identifier: identifier ?? defaultIdentifier)
+    }
+    
+    func getDetails(fromUrl urlString: String, withHeaders headers: Dictionary<String, String>?, identifier: String?) {
+        let newHeaders = headers ?? [:]
+        self.send(withCRUDMethod: .getJSON, toUrl: urlString, withBody: nil, andHeaders: newHeaders, identifier: identifier ?? defaultIdentifier)
+    }
+    
     func post(toUrl urlString: String, withBody body: Any, andHeaders headers: Dictionary<String, String>?, identifier: String?) {
         let newHeaders = headers ?? [:]
-        self.send(withCRUDMethod: .post, toUrl: urlString, withBody: body, andHeaders: newHeaders, identifier: identifier ?? defaultIdentifier)
+        self.send(withCRUDMethod: .postJSON, toUrl: urlString, withBody: body, andHeaders: newHeaders, identifier: identifier ?? defaultIdentifier)
     }
     
     func postJson(toUrl urlString: String, withBody body: Any, andHeaders headers: Dictionary<String, String>?, identifier: String?) {
         var headersWithJson = headers ?? [:]
         headersWithJson["Content-Type"] = "application/json"
         
-        self.send(withCRUDMethod: .post, toUrl: urlString, withBody: body, andHeaders: headersWithJson, identifier: identifier ?? defaultIdentifier)
+        self.send(withCRUDMethod: .postJSON, toUrl: urlString, withBody: body, andHeaders: headersWithJson, identifier: identifier ?? defaultIdentifier)
+    }
+    
+    func delete(fromUrl urlString: String, withHeaders headers: Dictionary<String, String>?, identifier: String?) {
+        var headersWithJson = headers ?? [:]
+        self.send(withCRUDMethod: .deleteJSON, toUrl: urlString, withBody: nil, andHeaders: headersWithJson, identifier: identifier ?? defaultIdentifier)
     }
 }
 

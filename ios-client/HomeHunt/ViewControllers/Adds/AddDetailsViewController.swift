@@ -4,7 +4,8 @@ class AddDetailsViewController: UIViewController, UITableViewDataSource, AddData
     var addId: Int?
     var addData: AddData?
     var add: Add?
-    
+        
+    @IBOutlet weak var vImage: ImageWithLoadingView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var vLabelType: UILabel!
     @IBOutlet weak var vLabelStatus: UILabel!
@@ -46,6 +47,7 @@ class AddDetailsViewController: UIViewController, UITableViewDataSource, AddData
         let ratingString = "\((self.add?.rating.description)!) / \((self.add?.ratingCount)!)"
         let addressString = "\((self.add?.town)!), \((self.add?.address)!)"
         
+        self.vImage.imageUrl = self.add?.imageFilename
         self.vLabelType.text = self.add?.type
         self.vLabelStatus.text = self.add?.status
         self.vLabelStatus.textColor = StatusColorHelper.getStatusColor(status: self.add!.status as! String)
@@ -83,5 +85,12 @@ class AddDetailsViewController: UIViewController, UITableViewDataSource, AddData
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Comments"
+    }
+    
+    @IBAction func addAppointment(_ sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let createAppointmentVC = storyBoard.instantiateViewController(withIdentifier: "addNewAppointment") as! CreateAppointmentViewController
+        createAppointmentVC.addId = self.addId
+        self.navigationController!.pushViewController(createAppointmentVC, animated: true)
     }
 }

@@ -13,7 +13,7 @@ class UsersData: HttpRequesterDelegate {
         self.httpRequester?.postJson(toUrl: "\(self.url!)/login", withBody: user.toDict(), andHeaders: nil, identifier: UsersDataIdentifiers.login.rawValue)
     }
     
-    func didCompletePost(result: Any, identifier: String) {
+    func didCompletePostJSON(result: Any, identifier: String) {
         let resultAsDict = result as! Dictionary<String, Any>
         switch identifier {
         case UsersDataIdentifiers.register.rawValue:

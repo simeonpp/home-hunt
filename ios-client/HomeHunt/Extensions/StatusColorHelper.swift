@@ -21,4 +21,21 @@ class StatusColorHelper {
         
         return color
     }
+    
+    public static func getAppointmentStatusColor(status: String) -> UIColor {
+        var color: UIColor
+        
+        switch status {
+        case "Finished":
+            color = UIColor(red: 0.55, green: 1, blue: 0.6, alpha: 0.5)
+        case "Rejected":
+            color = UIColor(red: 1, green: 0.6, blue: 0.7, alpha: 0.5)
+        case "Pending":
+            color = UIColor(red: 0.6, green: 0.9, blue: 1, alpha: 0.5)
+        default:
+            color = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
+        }
+        
+        return color
+    }
 }

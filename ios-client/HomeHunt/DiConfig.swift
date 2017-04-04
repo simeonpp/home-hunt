@@ -50,6 +50,45 @@ class DiConfigData {
             
             return data
         }
+        
+        // Image data
+        container.register(ImageData.self) { resolver in
+            var httpRequester = resolver.resolve(HttpRequesterBase.self)
+            let data = ImageData()
+            
+            httpRequester?.delegate = data
+            
+            data.httpRequester = httpRequester
+            data.url = "\(baseUrl)/public/images"
+            
+            return data
+        }
+        
+        // Appointment data
+        container.register(AppointmentData.self) { resolver in
+            var httpRequester = resolver.resolve(HttpRequesterBase.self)
+            let data = AppointmentData()
+            
+            httpRequester?.delegate = data
+            
+            data.httpRequester = httpRequester
+            data.url = "\(baseUrl)/appointments"
+            
+            return data
+        }
+        
+        // Review data
+        container.register(ReviewData.self) { resolver in
+            var httpRequester = resolver.resolve(HttpRequesterBase.self)
+            let data = ReviewData()
+            
+            httpRequester?.delegate = data
+            
+            data.httpRequester = httpRequester
+            data.url = "\(baseUrl)/reviews"
+            
+            return data
+        }
     }
 }
 
@@ -95,6 +134,34 @@ class DiConfigViewContorller {
             let addsData = resolver.resolve(AddData.self)
             vc.addData = addsData
             addsData?.delegate = vc
+        }
+        
+        // Appointment Create VC
+        container.storyboardInitCompleted(CreateAppointmentViewController.self) { resolver, vc in
+            let appointmentData = resolver.resolve(AppointmentData.self)
+            vc.appointmentData = appointmentData
+            appointmentData?.delegate = vc
+        }
+        
+        // Appointment Master VC
+        container.storyboardInitCompleted(AppointmentsMasterViewController.self) { resolver, vc in
+            let appointmentData = resolver.resolve(AppointmentData.self)
+            vc.appointmentData = appointmentData
+            appointmentData?.delegate = vc
+        }
+        
+        // Appointment Details VC
+        container.storyboardInitCompleted(AppointmentDetailsViewController.self) { resolver, vc in
+            let appointmentData = resolver.resolve(AppointmentData.self)
+            vc.appointmentData = appointmentData
+            appointmentData?.delegate = vc
+        }
+        
+        // Appointment Details VC
+        container.storyboardInitCompleted(SubmitReviewViewController.self) { resolver, vc in
+            let reviewDate = resolver.resolve(ReviewData.self)
+            vc.reviewData = reviewDate
+            reviewDate?.delegate = vc
         }
     }
 }

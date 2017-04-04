@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6F174C01B04D0E00CA49BC6B /* Pods_HomeHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAE2E058C686CE56B0B21160 /* Pods_HomeHunt.framework */; };
+		C803761C1E937138003A75FC /* ImageWithLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C803761B1E937138003A75FC /* ImageWithLoadingView.swift */; };
+		C803761E1E937902003A75FC /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C803761D1E937902003A75FC /* ImageData.swift */; };
+		C80376201E9381CB003A75FC /* ImageDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C803761F1E9381CB003A75FC /* ImageDataDelegate.swift */; };
 		C831D0521E8FE2D800429D83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831D0511E8FE2D800429D83 /* AppDelegate.swift */; };
 		C831D0571E8FE2D800429D83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C831D0551E8FE2D800429D83 /* Main.storyboard */; };
 		C831D05A1E8FE2D800429D83 /* HomeHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C831D0581E8FE2D800429D83 /* HomeHunt.xcdatamodeld */; };
@@ -25,6 +28,12 @@
 		C83A916B1E914610009FED12 /* AddDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A916A1E914610009FED12 /* AddDetailsViewController.swift */; };
 		C83A916E1E91479A009FED12 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83A916C1E91479A009FED12 /* AddTableViewCell.swift */; };
 		C83A916F1E91479A009FED12 /* AddTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83A916D1E91479A009FED12 /* AddTableViewCell.xib */; };
+		C87BBE2C1E94161500C448A9 /* AppointmentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87BBE2B1E94161500C448A9 /* AppointmentDetailsViewController.swift */; };
+		C87BBE301E94243600C448A9 /* SubmitReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87BBE2F1E94243600C448A9 /* SubmitReviewViewController.swift */; };
+		C87BBE321E94287400C448A9 /* ReviewDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87BBE311E94287400C448A9 /* ReviewDataDelegate.swift */; };
+		C87BBE341E9428BC00C448A9 /* ReviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87BBE331E9428BC00C448A9 /* ReviewData.swift */; };
+		C87BBE361E94290800C448A9 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87BBE351E94290800C448A9 /* Review.swift */; };
+		C87BBE381E9429C000C448A9 /* ReviewMappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87BBE371E9429C000C448A9 /* ReviewMappings.swift */; };
 		C88E7D691E8FECB400081A18 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88E7D681E8FECB400081A18 /* LoginViewController.swift */; };
 		C88E7D6B1E8FEEC000081A18 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88E7D6A1E8FEEC000081A18 /* HomeViewController.swift */; };
 		C88E7D6D1E8FF7D100081A18 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88E7D6C1E8FF7D100081A18 /* RegisterViewController.swift */; };
@@ -48,10 +57,19 @@
 		C899B5641E90EA8600B7B748 /* ApiErrorMappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C899B5631E90EA8600B7B748 /* ApiErrorMappings.swift */; };
 		C8E7326B1E9174D7001C1753 /* StatusColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E7326A1E9174D7001C1753 /* StatusColorHelper.swift */; };
 		C8EA07EE1E90BFEB00D0535B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8EA07ED1E90BFEB00D0535B /* UIViewExtension.swift */; };
+		C8F12D511E93F81800FDE497 /* CreateAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F12D501E93F81800FDE497 /* CreateAppointmentViewController.swift */; };
+		C8F12D531E93FCFC00FDE497 /* AppointmentDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F12D521E93FCFC00FDE497 /* AppointmentDataDelegate.swift */; };
+		C8F12D551E93FD4E00FDE497 /* AppointmentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F12D541E93FD4E00FDE497 /* AppointmentData.swift */; };
+		C8F12D571E93FDD900FDE497 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F12D561E93FDD900FDE497 /* Appointment.swift */; };
+		C8F12D591E93FEE800FDE497 /* AppointmentMappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F12D581E93FEE800FDE497 /* AppointmentMappings.swift */; };
+		C8F12D5B1E940AD300FDE497 /* AppointmentsMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F12D5A1E940AD300FDE497 /* AppointmentsMasterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3CDA4CCBE4FCD90C2A15AD17 /* Pods-HomeHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeHunt.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeHunt/Pods-HomeHunt.release.xcconfig"; sourceTree = "<group>"; };
+		C803761B1E937138003A75FC /* ImageWithLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageWithLoadingView.swift; path = Views/ImageWithLoadingView.swift; sourceTree = "<group>"; };
+		C803761D1E937902003A75FC /* ImageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageData.swift; path = Data/ImageData.swift; sourceTree = "<group>"; };
+		C803761F1E9381CB003A75FC /* ImageDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDataDelegate.swift; path = Data/Delegates/ImageDataDelegate.swift; sourceTree = "<group>"; };
 		C831D04E1E8FE2D800429D83 /* HomeHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C831D0511E8FE2D800429D83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C831D0561E8FE2D800429D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +89,12 @@
 		C83A916A1E914610009FED12 /* AddDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddDetailsViewController.swift; path = ViewControllers/Adds/AddDetailsViewController.swift; sourceTree = "<group>"; };
 		C83A916C1E91479A009FED12 /* AddTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddTableViewCell.swift; path = Views/AddTableViewCell.swift; sourceTree = "<group>"; };
 		C83A916D1E91479A009FED12 /* AddTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddTableViewCell.xib; path = Views/AddTableViewCell.xib; sourceTree = "<group>"; };
+		C87BBE2B1E94161500C448A9 /* AppointmentDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentDetailsViewController.swift; path = ViewControllers/Appointments/AppointmentDetailsViewController.swift; sourceTree = "<group>"; };
+		C87BBE2F1E94243600C448A9 /* SubmitReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitReviewViewController.swift; path = ViewControllers/Appointments/SubmitReviewViewController.swift; sourceTree = "<group>"; };
+		C87BBE311E94287400C448A9 /* ReviewDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewDataDelegate.swift; path = Data/Delegates/ReviewDataDelegate.swift; sourceTree = "<group>"; };
+		C87BBE331E9428BC00C448A9 /* ReviewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewData.swift; path = Data/ReviewData.swift; sourceTree = "<group>"; };
+		C87BBE351E94290800C448A9 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Review.swift; path = Models/Review.swift; sourceTree = "<group>"; };
+		C87BBE371E9429C000C448A9 /* ReviewMappings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReviewMappings.swift; path = Models/Extensions/ReviewMappings.swift; sourceTree = "<group>"; };
 		C88E7D681E8FECB400081A18 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		C88E7D6A1E8FEEC000081A18 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ViewControllers/HomeViewController.swift; sourceTree = "<group>"; };
 		C88E7D6C1E8FF7D100081A18 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = ViewControllers/RegisterViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +118,12 @@
 		C899B5631E90EA8600B7B748 /* ApiErrorMappings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiErrorMappings.swift; path = Models/Extensions/ApiErrorMappings.swift; sourceTree = "<group>"; };
 		C8E7326A1E9174D7001C1753 /* StatusColorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusColorHelper.swift; path = Extensions/StatusColorHelper.swift; sourceTree = "<group>"; };
 		C8EA07ED1E90BFEB00D0535B /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		C8F12D501E93F81800FDE497 /* CreateAppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateAppointmentViewController.swift; path = ViewControllers/Appointments/CreateAppointmentViewController.swift; sourceTree = "<group>"; };
+		C8F12D521E93FCFC00FDE497 /* AppointmentDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentDataDelegate.swift; path = Data/Delegates/AppointmentDataDelegate.swift; sourceTree = "<group>"; };
+		C8F12D541E93FD4E00FDE497 /* AppointmentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentData.swift; path = Data/AppointmentData.swift; sourceTree = "<group>"; };
+		C8F12D561E93FDD900FDE497 /* Appointment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Appointment.swift; path = Models/Appointment.swift; sourceTree = "<group>"; };
+		C8F12D581E93FEE800FDE497 /* AppointmentMappings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentMappings.swift; path = Models/Extensions/AppointmentMappings.swift; sourceTree = "<group>"; };
+		C8F12D5A1E940AD300FDE497 /* AppointmentsMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppointmentsMasterViewController.swift; path = ViewControllers/Appointments/AppointmentsMasterViewController.swift; sourceTree = "<group>"; };
 		D775CCBFCC71051DD6C097BC /* Pods-HomeHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeHunt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeHunt/Pods-HomeHunt.debug.xcconfig"; sourceTree = "<group>"; };
 		DAE2E058C686CE56B0B21160 /* Pods_HomeHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -172,6 +202,7 @@
 				C83A91561E90FF93009FED12 /* AgentTableViewCell.xib */,
 				C83A916C1E91479A009FED12 /* AddTableViewCell.swift */,
 				C83A916D1E91479A009FED12 /* AddTableViewCell.xib */,
+				C803761B1E937138003A75FC /* ImageWithLoadingView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -188,6 +219,7 @@
 		C88E7D671E8FEC3900081A18 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C8F12D4F1E93F7E100FDE497 /* Appointments */,
 				C83A91671E914458009FED12 /* Adds */,
 				C899B5541E90D7BC00B7B748 /* Agents */,
 				C88E7D681E8FECB400081A18 /* LoginViewController.swift */,
@@ -205,6 +237,8 @@
 				C899B5571E90D8B100B7B748 /* Agent.swift */,
 				C899B5611E90E9DF00B7B748 /* ApiError.swift */,
 				C83A915F1E9130D7009FED12 /* Add.swift */,
+				C8F12D561E93FDD900FDE497 /* Appointment.swift */,
+				C87BBE351E94290800C448A9 /* Review.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -216,6 +250,8 @@
 				C899B5591E90DA5A00B7B748 /* AgentMappings.swift */,
 				C899B5631E90EA8600B7B748 /* ApiErrorMappings.swift */,
 				C83A91611E9132B8009FED12 /* AddMappings.swift */,
+				C8F12D581E93FEE800FDE497 /* AppointmentMappings.swift */,
+				C87BBE371E9429C000C448A9 /* ReviewMappings.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -240,6 +276,9 @@
 				C88E7D841E90021700081A18 /* UsersData.swift */,
 				C899B55F1E90DD9500B7B748 /* AgentsData.swift */,
 				C83A91651E91435F009FED12 /* AddData.swift */,
+				C803761D1E937902003A75FC /* ImageData.swift */,
+				C8F12D541E93FD4E00FDE497 /* AppointmentData.swift */,
+				C87BBE331E9428BC00C448A9 /* ReviewData.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -250,6 +289,9 @@
 				C88E7D861E90036400081A18 /* UsersDataDelegate.swift */,
 				C899B55B1E90DCD300B7B748 /* AgentsDatadelegate.swift */,
 				C83A91631E914312009FED12 /* AddDataDelegate.swift */,
+				C803761F1E9381CB003A75FC /* ImageDataDelegate.swift */,
+				C8F12D521E93FCFC00FDE497 /* AppointmentDataDelegate.swift */,
+				C87BBE311E94287400C448A9 /* ReviewDataDelegate.swift */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -287,6 +329,17 @@
 				C83A91591E911AB8009FED12 /* AgentDetailsViewController.swift */,
 			);
 			name = Agents;
+			sourceTree = "<group>";
+		};
+		C8F12D4F1E93F7E100FDE497 /* Appointments */ = {
+			isa = PBXGroup;
+			children = (
+				C8F12D501E93F81800FDE497 /* CreateAppointmentViewController.swift */,
+				C8F12D5A1E940AD300FDE497 /* AppointmentsMasterViewController.swift */,
+				C87BBE2B1E94161500C448A9 /* AppointmentDetailsViewController.swift */,
+				C87BBE2F1E94243600C448A9 /* SubmitReviewViewController.swift */,
+			);
+			name = Appointments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,15 +471,25 @@
 				C899B55A1E90DA5A00B7B748 /* AgentMappings.swift in Sources */,
 				C88E7D7B1E8FFE5E00081A18 /* HttpRequesterDelegate.swift in Sources */,
 				C83A915C1E911D88009FED12 /* BaseData.swift in Sources */,
+				C803761E1E937902003A75FC /* ImageData.swift in Sources */,
 				C899B5601E90DD9500B7B748 /* AgentsData.swift in Sources */,
 				C88E7D691E8FECB400081A18 /* LoginViewController.swift in Sources */,
+				C87BBE341E9428BC00C448A9 /* ReviewData.swift in Sources */,
 				C83A916B1E914610009FED12 /* AddDetailsViewController.swift in Sources */,
 				C83A916E1E91479A009FED12 /* AddTableViewCell.swift in Sources */,
+				C87BBE321E94287400C448A9 /* ReviewDataDelegate.swift in Sources */,
 				C83A915A1E911AB8009FED12 /* AgentDetailsViewController.swift in Sources */,
 				C899B5641E90EA8600B7B748 /* ApiErrorMappings.swift in Sources */,
+				C8F12D511E93F81800FDE497 /* CreateAppointmentViewController.swift in Sources */,
+				C8F12D531E93FCFC00FDE497 /* AppointmentDataDelegate.swift in Sources */,
 				C899B5561E90D80A00B7B748 /* AgentsMasterViewController.swift in Sources */,
 				C899B5621E90E9DF00B7B748 /* ApiError.swift in Sources */,
 				C83A91601E9130D7009FED12 /* Add.swift in Sources */,
+				C803761C1E937138003A75FC /* ImageWithLoadingView.swift in Sources */,
+				C8F12D551E93FD4E00FDE497 /* AppointmentData.swift in Sources */,
+				C87BBE381E9429C000C448A9 /* ReviewMappings.swift in Sources */,
+				C8F12D5B1E940AD300FDE497 /* AppointmentsMasterViewController.swift in Sources */,
+				C87BBE2C1E94161500C448A9 /* AppointmentDetailsViewController.swift in Sources */,
 				C88E7D7D1E8FFEAD00081A18 /* HttpCRUDMethod.swift in Sources */,
 				C899B5521E90D04F00B7B748 /* ApiAuthenticationExtension.swift in Sources */,
 				C8E7326B1E9174D7001C1753 /* StatusColorHelper.swift in Sources */,
@@ -436,16 +499,21 @@
 				C8EA07EE1E90BFEB00D0535B /* UIViewExtension.swift in Sources */,
 				C83A91621E9132B8009FED12 /* AddMappings.swift in Sources */,
 				C88E7D8A1E900C1200081A18 /* UsersDataIdentifiers.swift in Sources */,
+				C80376201E9381CB003A75FC /* ImageDataDelegate.swift in Sources */,
 				C83A91641E914312009FED12 /* AddDataDelegate.swift in Sources */,
 				C88E7D721E8FFCAB00081A18 /* User.swift in Sources */,
 				C88E7D7F1E8FFED400081A18 /* HttpRequester.swift in Sources */,
 				C83A91661E91435F009FED12 /* AddData.swift in Sources */,
 				C831D05A1E8FE2D800429D83 /* HomeHunt.xcdatamodeld in Sources */,
+				C8F12D571E93FDD900FDE497 /* Appointment.swift in Sources */,
+				C8F12D591E93FEE800FDE497 /* AppointmentMappings.swift in Sources */,
 				C88E7D791E8FFE3100081A18 /* HttpRequesterBase.swift in Sources */,
 				C899B5581E90D8B100B7B748 /* Agent.swift in Sources */,
 				C831D0521E8FE2D800429D83 /* AppDelegate.swift in Sources */,
 				C83A91571E90FF93009FED12 /* AgentTableViewCell.swift in Sources */,
 				C88E7D851E90021700081A18 /* UsersData.swift in Sources */,
+				C87BBE361E94290800C448A9 /* Review.swift in Sources */,
+				C87BBE301E94243600C448A9 /* SubmitReviewViewController.swift in Sources */,
 				C88E7D6B1E8FEEC000081A18 /* HomeViewController.swift in Sources */,
 				C899B55C1E90DCD300B7B748 /* AgentsDatadelegate.swift in Sources */,
 				C88E7D871E90036400081A18 /* UsersDataDelegate.swift in Sources */,
