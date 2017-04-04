@@ -52,10 +52,15 @@ var getById = {
                 return addAttributeServices.getAllByAddId(add.id)
             })
             .then(function(addAttributesDate) {
+                var mainImage = images.find(function(image) {
+                    return image.isMain;
+                });
+
                 attributes = addAttributesDate;
                 add.images = images;
                 add.attributes = attributes;
                 add.notes = notes
+                add.imageFilename = mainImage ? mainImage.filename : null;
                 reply({
                     result: add
                 });

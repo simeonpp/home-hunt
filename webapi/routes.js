@@ -16,15 +16,29 @@ const apiEndpoints = [
 
     // Adds
     { method: 'GET', path: '/adds', config: controllers.add.getAll },
-    { method: 'GET', path: '/adds/{id}', config: controllers.add.getById }
+    { method: 'GET', path: '/adds/{id}', config: controllers.add.getById },
+
+    // Appointments
+    { method: 'GET', path: '/appointments', config: controllers.appointment.getAll },
+    { method: 'GET', path: '/appointments/{id}', config: controllers.appointment.getById },
+    { method: 'POST', path: '/appointments', config: controllers.appointment.create },
+    { method: 'DELETE', path: '/appointments/{id}', config: controllers.appointment.deleteById },
+    { method: 'PUT', path: '/appointments/{id}', config: controllers.appointment.updateById },
+
+    // Reviews
+    { method: 'POST', path: '/reviews/{id}', config: controllers.review.addReview }
 ].map(function(endpoint) { // add api url prefix to each route path
     endpoint.path = `${config.application.apiUrl}${endpoint.path}`
     return endpoint
 });
 
-const clientEndpoints = [];
+const clientEndpoints = [
+    // Public
+        // images
+    { method: "GET", path: `${config.application.imageUrl}/{filename}`, config: controllers.static.getImage },
+];
 
-const endpoints = apiEndpoints.concat(clientEndpoints);
+const endpoints = clientEndpoints.concat(apiEndpoints);
 
 // Notify
 logger.logHeader("Registered endpoints:", config.logger.tags.SYSTEM)
