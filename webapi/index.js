@@ -12,11 +12,17 @@ dataProviderConnection.init
     .then(function(dataProviderConnectionResult) {
         const server = new Hapi.Server();
         server.connection({ port: config.application.port, host: config.application.host });
-        server.route(routes.endpoints);
-        server.ext('onRequest', helpers.verifyAuthentication);
-        server.start(function() {
-            logger.logHeader(`Server started at ${server.info.uri}`, config.logger.tags.SYSTEM)
-        });
+        server.register(require('inert'), (err) => {
+            if (err) {
+                throw err;
+            }
+
+            server.route(routes.endpoints);
+            server.ext('onRequest', helpers.verifyAuthentication);
+            server.start(function() {
+                logger.logHeader(`Server started at ${server.info.uri}`, config.logger.tags.SYSTEM)
+            });
+        })
     })
     .catch(function(error) {
         errorHandler.handleError(error);

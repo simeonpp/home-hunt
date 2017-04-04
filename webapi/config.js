@@ -3,6 +3,8 @@ const application = {
     port: '8000',
     env: 'prod', // [dev, prod],
     apiUrl: '/api',
+    publicUrl: '/public',
+    imageUrl: '/public/images',
     publicFolder: './public',
     publicStaticFolder: './public/static/',
     publicUploadsFolder: './public/uploads/'

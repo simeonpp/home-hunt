@@ -1,6 +1,7 @@
 'use strict';
 var logger = require('./logger');
-var tags = require('./config').logger.tags;
+var config = require('./config');
+var tags = config.logger.tags;
 var authenticationServices = require('./dataProvider').services.authentication;
 
 var pathsToNotValidate = ['/api/login', '/api/register'];
@@ -11,6 +12,8 @@ var verifyAuthentication = function(request, reply) {
     logger.log(`${url} - ${cookie}`, tags.REQUEST);
 
     if (pathsToNotValidate.indexOf(url) >= 0) {
+        return reply.continue();
+    } else if (url.startsWith(config.application.publicUrl)) {
         return reply.continue();
     } else {
         var errorResponse = {
