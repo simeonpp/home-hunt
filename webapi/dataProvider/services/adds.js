@@ -54,7 +54,38 @@ var getById = function(addId) {
     return promise;
 }
 
+var updateRating = function(addId, newRatingToAdd){
+    var promise = new Promise(function(resolve, reject) {
+        // First get current rating
+        var getAddCurrentRatingQuery = `SELECT rating, ratingCount FROM adds WHERE id = ${addId}`;
+
+        getConnection().query(getAddCurrentRatingQuery)
+            .then(function(addRatingResult) {
+                var currentRating = addRatingResult[0].rating;
+                var currentRatingCount = addRatingResult[0].ratingCount;
+
+                var newRating = currentRating + newRatingToAdd;
+                var newRatingCount = currentRatingCount + 1;
+
+                var updateAddRatingQuery = 'UPDATE adds ' +
+                                            `SET rating = ${newRating}, ratingCount = ${newRatingCount} `+
+                                            `WHERE id = ${addId}`;
+                return getConnection().query(updateAddRatingQuery);
+            })
+            .then(function(updateRatingResult) {
+                resolve({ success: true });
+            })
+            .catch(function(error) {
+                console.log(error);
+                reject(error);
+            });
+    });
+
+    return promise;
+}
+
 module.exports = {
     getAll,
-    getById
+    getById,
+    updateRating
 }

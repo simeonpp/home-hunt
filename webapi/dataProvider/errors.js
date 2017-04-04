@@ -4,8 +4,12 @@ var dbErrors = [
         message: 'Invalid Database result'
     },
     {
-        type: 'PortMySQL,error',
+        type: 'PortMySQL.error',
         message: 'PortMYSQL error'
+    },
+    {
+        type: 'PortMySQL.noSuchObject',
+        message: 'PortMYSQL no such object to delete'
     }
 ];
 
