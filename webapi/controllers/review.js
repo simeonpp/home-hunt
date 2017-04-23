@@ -13,6 +13,9 @@ var addReview = {
         var addId = request.payload.addId;
         var addRating = request.payload.addRating;
         var addNote = request.payload.addNote;
+        var addCompass = request.payload.compass;
+        var addLat = request.payload.latitude;
+        var addLong = request.payload.longitude;
 
         var agentId = request.payload.addId;
         var agentRating = request.payload.agentRating;
@@ -20,6 +23,9 @@ var addReview = {
 
         noteServices.create('add', addId, addNote)
             .then(function(addNoteAddResult) {
+                return addServices.addAttributeValues(addId, addCompass, addLat, addLong)
+            })
+            .then(function(addAttributeValueResult) {
                 return noteServices.create('agent', agentId, agentNote);
             })
             .then(function(addNoteAgentResult) {

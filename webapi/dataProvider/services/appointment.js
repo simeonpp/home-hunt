@@ -46,10 +46,10 @@ var getById = function(appointmentId) {
     return promise;
 };
 
-var create = function(addId, agentId, timestamp, note) {
+var create = function(addId, agentId, dateAndTime, note) {
     var promise = new Promise(function(resolve, reject) {
         var query = 'INSERT INTO appointments (addId, agentId, `status`, `date`, note) '
-                    + `VALUES (${addId}, ${agentId}, 3, ${timestamp}, "${note}")`
+                    + `VALUES (${addId}, ${agentId}, 3, '${dateAndTime}', "${note}")`
 
         getConnection().query(query)
             .then(function(createAppointmentResult) {
@@ -87,10 +87,10 @@ var deleteById = function(appointmentId) {
     return promise;
 };
 
-var updateById = function(appointmentId, newTimestamp, newNote) {
+var updateById = function(appointmentId, newDateAndTime, newNote) {
     var promise = new Promise(function(resolve, reject) {
         var query = 'UPDATE appointments ' +
-                    'SET `date` = ' + newTimestamp + ', note = "' + newNote + '" ' +
+                    'SET `date` = ' + newDateAndTime + ', note = "' + newNote + '" ' +
                     `WHERE id = ${appointmentId}`;
         getConnection().query(query)
             .then(function(appointmentDeleteResult) {

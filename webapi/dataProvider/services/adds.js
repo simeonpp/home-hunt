@@ -68,7 +68,7 @@ var updateRating = function(addId, newRatingToAdd){
                 var newRatingCount = currentRatingCount + 1;
 
                 var updateAddRatingQuery = 'UPDATE adds ' +
-                                            `SET rating = ${newRating}, ratingCount = ${newRatingCount} `+
+                                            `SET rating = ${newRating}, ratingCount = ${newRatingCount}, status = 1 `+
                                             `WHERE id = ${addId}`;
                 return getConnection().query(updateAddRatingQuery);
             })
@@ -82,10 +82,28 @@ var updateRating = function(addId, newRatingToAdd){
     });
 
     return promise;
-}
+};
+
+var addAttributeValues = function(addId, compass, latitude, longitude){
+    var promise = new Promise(function(resolve, reject) {
+        var query = 'INSERT INTO adds_attribute_values (addId, addAttributeTypeId, value) ' +
+                    `VALUES (${addId}, 13, ${compass}), (${addId}, 14, ${latitude}), (${addId}, 15, ${longitude})`;
+        getConnection().query(query)
+            .then(function(addAttributesValueResult) {
+                resolve(addAttributesValueResult);
+            })
+            .catch(function(error) {
+                console.log(error);
+                reject(error);
+            })
+    });
+
+    return promise;
+};
 
 module.exports = {
     getAll,
     getById,
-    updateRating
+    updateRating,
+    addAttributeValues
 }

@@ -1,5 +1,5 @@
 const application = {
-    host: '192.168.0.103',
+    host: '192.168.0.102',
     port: '8000',
     env: 'prod', // [dev, prod],
     apiUrl: '/api',

@@ -10,6 +10,10 @@ var getAll = {
     handler: function(request, reply) {
         appointmentServices.getAll()
             .then(function(appointments) {
+                appointments = appointments.map(function(app) {
+                    app.date = helpers.formatDate(app.date);
+                    return app;
+                });
                 reply({
                     result: appointments
                 });
@@ -27,6 +31,7 @@ var getById = {
         var appointment;
         appointmentServices.getById(appointmentId)
             .then(function(appointmentData) {
+                appointmentData.date = helpers.formatDate(appointmentData.date);
                 reply({
                     result: appointmentData
                 });
@@ -40,12 +45,12 @@ var getById = {
 var create = {
     handler: function(request, reply) {
         var addId = request.payload.id;
-        var timestamp = request.payload.timestamp;
+        var dateAndTime = request.payload.dateAndTime;
         var note = request.payload.note;
 
         agentServices.getAgentIdByAddId(addId)
             .then(function(agentId) {
-                return appointmentServices.create(addId, agentId, timestamp, note)
+                return appointmentServices.create(addId, agentId, dateAndTime, note)
             })
             .then(function(appointmentCreateResult) {
                 reply(appointmentCreateResult);
