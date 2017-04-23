@@ -4,24 +4,24 @@ class Appointment {
     var id: Int?
     var status: String?
     var note: String?
-    var timestamp: Int
+    var date: Date
     var addId: Int?
     var agentId: Int?
     
-    convenience init(withId id: Int, andTimestamp timestamp: Int, andNote note: String) {
-        self.init(withId: id, andStatus: nil, andNote: note, andTimestamp: timestamp, andAddId: nil, andAgentId: nil)
+    convenience init(withId id: Int, andDate date: Date, andNote note: String) {
+        self.init(withId: id, andStatus: nil, andNote: note, adnDate: date, andAddId: nil, andAgentId: nil)
     }
     
     init(withId id: Int?,
          andStatus status: String?,
          andNote note: String?,
-         andTimestamp timestamp: Int,
+         adnDate date: Date,
          andAddId addId: Int?,
          andAgentId agentId: Int?) {
         self.id = id
         self.status = status
         self.note = note
-        self.timestamp = timestamp
+        self.date = date
         self.addId = addId
         self.agentId = agentId
     }

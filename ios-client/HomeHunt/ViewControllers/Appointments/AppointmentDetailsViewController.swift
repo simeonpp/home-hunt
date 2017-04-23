@@ -8,13 +8,14 @@ class AppointmentDetailsViewController: UIViewController, AppointmentDataDelegat
     @IBOutlet weak var vLabelDate: UILabel!
     @IBOutlet weak var vLabelStatus: UILabel!
     @IBOutlet weak var vLabelNote: UILabel!
-    
+    @IBOutlet weak var vButtonFinish: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.showLoading()
         self.appointmentData?.get(appointmentId: self.appointmentId!, cookie: self.cookie)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,11 +37,15 @@ class AppointmentDetailsViewController: UIViewController, AppointmentDataDelegat
     }
     
     func updateDetailLabels() -> Void {
-        self.vLabelDate.text = self.appointment?.timestamp.description
+        self.vLabelDate.text = DateHelper.toStringUTC((self.appointment?.date)!)
         self.vLabelNote.text = self.appointment?.note
         
         self.vLabelStatus.text = self.appointment?.status
         self.vLabelStatus.textColor = StatusColorHelper.getAppointmentStatusColor(status: (self.appointment?.status!)!)
+        
+        if (self.appointment?.status != "Pending") {
+            self.vButtonFinish.isHidden = true
+        }
     }
     
     

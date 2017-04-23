@@ -98,7 +98,7 @@ class HttpRequester: HttpRequesterBase {
     
     func delete(fromUrl urlString: String, withHeaders headers: Dictionary<String, String>?, identifier: String?) {
         var headersWithJson = headers ?? [:]
-        self.send(withCRUDMethod: .deleteJSON, toUrl: urlString, withBody: nil, andHeaders: headersWithJson, identifier: identifier ?? defaultIdentifier)
+        self.send(withCRUDMethod: .deleteJSON, toUrl: urlString, withBody: nil, andHeaders: headersWithJson, identifier	: identifier ?? defaultIdentifier)
     }
 }
 

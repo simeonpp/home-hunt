@@ -47,7 +47,9 @@ class AppointmentsMasterViewController: UIViewController, UITableViewDataSource,
         let currentAppointment = self.appointments[indexPath.row]
         
         let cellColor: UIColor = StatusColorHelper.getAppointmentStatusColor(status: currentAppointment.status!)
-        let cellText = "\(currentAppointment.timestamp.description) - \(currentAppointment.status!)"
+        
+        let formattedDate = DateHelper.toStringUTC(currentAppointment.date)
+        let cellText = "\(formattedDate) - \(currentAppointment.status!)"
         cell.backgroundColor = cellColor
         cell.textLabel?.text = cellText
         

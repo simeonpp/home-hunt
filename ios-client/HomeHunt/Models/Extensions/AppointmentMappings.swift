@@ -6,13 +6,13 @@ extension Appointment {
         let addId = dict["addId"] as? Int
         let agentId = dict["agentId"] as? Int
         let status = dict["status"] as! String
-        let timestamp = dict["date"] as! Int
+        let date = DateHelper.toDate(dict["date"] as! String)
         let note = dict["note"] as? String
         
         self.init(withId: id,
             andStatus: status,
             andNote: note,
-            andTimestamp: timestamp,
+            adnDate: date,
             andAddId: addId,
             andAgentId: agentId)
     }
@@ -20,7 +20,7 @@ extension Appointment {
     func toDict() -> Dictionary<String, Any> {
         return [
             "id": self.id!,
-            "timestamp": self.timestamp,
+            "dateAndTime": DateHelper.toString(self.date),
             "note": self.note
         ]
     }
