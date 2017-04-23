@@ -136,7 +136,7 @@
 		{
 			"name": "/api/appointments/id",
 			"request": {
-				"url": "http://192.168.0.103:8000/api/appointments/2",
+				"url": "http://192.168.0.103:8000/api/appointments/45",
 				"method": "GET",
 				"header": [
 					{

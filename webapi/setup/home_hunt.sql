@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2017 at 09:48 PM
+-- Generation Time: Apr 23, 2017 at 10:05 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -44,8 +44,8 @@ CREATE TABLE `adds` (
 --
 
 INSERT INTO `adds` (`id`, `type`, `status`, `rating`, `ratingCount`, `description`, `town`, `address`, `agentId`, `dateCreated`) VALUES
-(1, 1, 2, 0, 0, 'lorem', 'Sofia', 'ul. Ivan Vazov 1', 1, '2017-04-01 12:55:00'),
-(2, 1, 4, 5, 1, 'lorem 2', 'Sofia', 'ul. Hristo Botev 3', 2, '2017-04-01 13:10:57');
+(1, 1, 1, 0, 0, 'lorem', 'Sofia', 'ul. Ivan Vazov 1', 1, '2017-04-01 12:55:00'),
+(2, 1, 1, 4, 1, 'lorem 2', 'Sofia', 'ul. Hristo Botev 3', 2, '2017-04-01 13:10:57');
 
 -- --------------------------------------------------------
 
@@ -75,7 +75,10 @@ INSERT INTO `adds_attribute_types` (`id`, `type`, `display`) VALUES
 (9, 'furnished', 'Furnished'),
 (10, 'url', 'Url'),
 (11, 'rooms', 'Rooms'),
-(12, 'construction', 'Construction');
+(12, 'construction', 'Construction'),
+(13, 'compass', 'Compass direciton'),
+(14, 'latitude', 'Latitude'),
+(15, 'longitude', 'Longitude');
 
 -- --------------------------------------------------------
 
@@ -98,7 +101,10 @@ INSERT INTO `adds_attribute_values` (`id`, `addId`, `addAttributeTypeId`, `value
 (1, 1, 2, '120000'),
 (2, 1, 5, 'yes'),
 (3, 2, 3, '3'),
-(4, 1, 3, '3');
+(4, 1, 3, '3'),
+(24, 2, 13, '75'),
+(25, 2, 14, '42.69966739233835'),
+(26, 2, 15, '23.30356350170756');
 
 -- --------------------------------------------------------
 
@@ -181,8 +187,8 @@ CREATE TABLE `agents` (
   `phone` varchar(20) NOT NULL,
   `email` varchar(20) DEFAULT NULL,
   `company` varchar(200) DEFAULT NULL,
-  `rating` int(2) UNSIGNED NOT NULL DEFAULT '0',
-  `ratingCount` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `rating` int(2) NOT NULL DEFAULT '0',
+  `ratingCount` int(10) NOT NULL DEFAULT '0',
   `website` varchar(500) DEFAULT NULL,
   `dateCreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
@@ -193,7 +199,7 @@ CREATE TABLE `agents` (
 
 INSERT INTO `agents` (`id`, `firstName`, `lastName`, `phone`, `email`, `company`, `rating`, `ratingCount`, `website`, `dateCreated`) VALUES
 (1, 'Denis', 'Lyjata', '+359 885 85 58 85', 'denis.lyjata@abv.bg', NULL, 0, 0, NULL, '2017-03-24 22:14:14'),
-(2, 'Misho', 'Tarikata', '+359 887 87 78 87', 'misho.tarikata@abv.b', NULL, 2, 1, NULL, '2017-04-01 12:20:28');
+(2, 'Misho', 'Tarikata', '+359 887 87 78 87', 'misho.tarikata@abv.b', NULL, 1, 1, NULL, '2017-04-01 12:20:28');
 
 -- --------------------------------------------------------
 
@@ -206,7 +212,7 @@ CREATE TABLE `appointments` (
   `addId` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `agentId` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `status` int(11) UNSIGNED NOT NULL,
-  `date` bigint(20) NOT NULL,
+  `date` datetime NOT NULL,
   `note` text,
   `dateCreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
@@ -216,7 +222,10 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`id`, `addId`, `agentId`, `status`, `date`, `note`, `dateCreated`) VALUES
-(56, 2, 2, 1, 1293683278, 'vccv', '2017-04-04 21:51:38');
+(56, 2, 2, 1, '2017-04-04 21:51:38', 'vccv', '2017-04-04 21:51:38'),
+(63, 2, 2, 1, '2017-04-21 08:16:00', 'Add add', '2017-04-20 09:17:32'),
+(65, 1, 1, 3, '2017-04-21 10:22:00', 'Some notes...', '2017-04-20 10:22:59'),
+(66, 2, 2, 1, '2017-04-25 18:30:00', 'Hoffman', '2017-04-23 22:38:11');
 
 -- --------------------------------------------------------
 
@@ -257,8 +266,8 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`id`, `objectType`, `objectId`, `note`) VALUES
-(33, 'add', 2, 'Leave your comment on the agent'),
-(34, 'agent', 2, 'Leave your comment on the agent');
+(62, 'add', 2, '...'),
+(63, 'agent', 2, '...');
 
 -- --------------------------------------------------------
 
@@ -279,7 +288,8 @@ CREATE TABLE `sessions` (
 
 INSERT INTO `sessions` (`id`, `userId`, `cookie`, `expiresDate`) VALUES
 (12, 34, '3cd8ad4c-cbe7-487b-99b9-e0673f4b99e2', '2017-04-05 12:04:05'),
-(22, 1, '8da8676a-1341-42b2-b776-e77733281208', '2017-04-07 22:35:32');
+(26, 35, '0b2e58bb-3fd5-4ec7-8e40-83d7401bd974', '2017-04-23 08:47:14'),
+(29, 1, 'b1eed081-efcb-43b9-b4a2-9e94e44b2ed3', '2017-04-26 21:42:31');
 
 -- --------------------------------------------------------
 
@@ -300,7 +310,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `dateCreated`) VALUES
 (1, 'kolio', '123', '2017-03-28 22:26:30'),
-(34, 'misho', '123', '2017-04-02 12:03:52');
+(34, 'misho', '123', '2017-04-02 12:03:52'),
+(35, 'mincho', '123', '2017-04-20 08:13:01');
 
 --
 -- Indexes for dumped tables
@@ -403,12 +414,12 @@ ALTER TABLE `adds`
 -- AUTO_INCREMENT for table `adds_attribute_types`
 --
 ALTER TABLE `adds_attribute_types`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `adds_attribute_values`
 --
 ALTER TABLE `adds_attribute_values`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `adds_images`
 --
@@ -433,7 +444,7 @@ ALTER TABLE `agents`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 --
 -- AUTO_INCREMENT for table `appointments_statuses`
 --
@@ -443,17 +454,17 @@ ALTER TABLE `appointments_statuses`
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- Constraints for dumped tables
 --
