@@ -1,7 +1,9 @@
 import Foundation
 
 enum HttpCRUDMethod: String {
-    case getAll = "GET_ALL"
     case get = "GET"
-    case post = "POST"
+    case getAllJSON = "GET_ALL"
+    case getJSON = "GET_JSON"
+    case postJSON = "POST"
+    case deleteJSON = "DELETE_JSON"
 }

@@ -14,7 +14,7 @@ class AddData: BaseData, HttpRequesterDelegate {
         self.httpRequester?.getDetails(fromUrl: newUrl, withHeaders: getAuthenticationHeaders(cookie: cookie), identifier: nil)
     }
     
-    func didCompleteGetAll(result: Any, identifier: String) {
+    func didCompleteGetAllJSON(result: Any, identifier: String) {
         let resultAsDict = result as! Dictionary<String, Any>
         let error = resultAsDict["error"]
         
@@ -29,7 +29,7 @@ class AddData: BaseData, HttpRequesterDelegate {
         }
     }
     
-    func didCompleteGet(result: Any, identifier: String) {
+    func didCompleteGetJSON(result: Any, identifier: String) {
         let resultAsDict = result as! Dictionary<String, Any>
         let error = resultAsDict["error"]
         

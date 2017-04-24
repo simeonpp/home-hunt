@@ -47,6 +47,10 @@ class AddsMasterViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "add-cell", for: indexPath) as! AddTableViewCell
         let currentAdd = self.adds[indexPath.row]
         
+        if (currentAdd.imageFilename != nil) {
+            cell.vImage.imageUrl = currentAdd.imageFilename
+        }
+        
         cell.vLabelType.text = currentAdd.type
         cell.vLabelStatus.text = currentAdd.status
         cell.vLabelStatus.textColor = StatusColorHelper.getStatusColor(status: currentAdd.status as! String)

@@ -1,6 +1,7 @@
 import UIKit
 
 class AddTableViewCell: UITableViewCell {
+    @IBOutlet weak var vImage: ImageWithLoadingView!
     @IBOutlet weak var vLabelType: UILabel!
     @IBOutlet weak var vLabelStatus: UILabel!
     @IBOutlet weak var vLabelAddress: UILabel!
