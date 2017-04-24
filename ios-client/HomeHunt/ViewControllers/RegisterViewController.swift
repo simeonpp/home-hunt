@@ -9,10 +9,18 @@ class RegisterViewController: UIViewController, UsersDataDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Close keyboard
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubmitReviewViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func register(_ sender: Any) {

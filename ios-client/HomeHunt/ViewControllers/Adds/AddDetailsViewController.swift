@@ -18,8 +18,8 @@ class AddDetailsViewController: UIViewController, UITableViewDataSource, AddData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // register table cell for notes
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "add-comment-cell")
+        // register table cell for attributes
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "add-attributes-cell")
         
         self.showLoading()
         self.addData?.get(addId: self.addId!, cookie: self.cookie)
@@ -74,17 +74,19 @@ class AddDetailsViewController: UIViewController, UITableViewDataSource, AddData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.add?.notes.count ?? 0
+        return self.add?.attributes.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "add-comment-cell", for: indexPath)
-        cell.textLabel?.text = self.add?.notes[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "add-attributes-cell", for: indexPath)
+        let displayName = self.add?.attributes[indexPath.row].displayName
+        let value = self.add?.attributes[indexPath.row].value
+        cell.textLabel?.text = "\(displayName!): \(value!)"
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Comments"
+        return "Attributes"
     }
     
     @IBAction func addAppointment(_ sender: UIButton) {

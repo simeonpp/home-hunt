@@ -34,10 +34,9 @@ class SubmitReviewViewController: UIViewController, CLLocationManagerDelegate, R
         locationManager.startUpdatingLocation()
         locationManager.startUpdatingHeading()
         
-        // Set up location manager
-//        locationManager  = CLLocationManager()
-//        locationManager.delegate = self
-//        locationManager.startUpdatingHeading()
+        // Close keyboard
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubmitReviewViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +47,10 @@ class SubmitReviewViewController: UIViewController, CLLocationManagerDelegate, R
         let location = locations[0]
         geoLat = location.coordinate.latitude
         geoLong = location.coordinate.longitude
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {

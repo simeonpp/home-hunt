@@ -29,7 +29,7 @@ class ImageWithLoadingView: UIView, ImageDataDelegate {
         self.imageData = ImageData()
         self.imageData?.httpRequester = HttpRequester()
         self.imageData?.httpRequester?.delegate = self.imageData
-        self.imageData?.url = "http://192.168.0.102:8000/public/images"
+        self.imageData?.url = "http://192.168.0.103:8000/public/images"
         self.imageData?.delegate = self
         
         self.loadingView = UIActivityIndicatorView(frame: self.frame)

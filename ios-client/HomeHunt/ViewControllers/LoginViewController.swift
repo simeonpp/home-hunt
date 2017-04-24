@@ -9,6 +9,10 @@ class LoginViewController: UIViewController, UsersDataDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Close keyboard
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubmitReviewViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -21,6 +25,10 @@ class LoginViewController: UIViewController, UsersDataDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func login(_ sender: UIButton) {

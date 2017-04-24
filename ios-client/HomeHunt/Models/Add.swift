@@ -15,6 +15,7 @@ class Add {
     var agentPhone: String
     var imageFilename: String?
     var notes: [String]
+    var attributes: [AddAttributes]
     
     init(withId id: Int?,
          andType type: String,
@@ -29,7 +30,8 @@ class Add {
          andAgentLastName agentLastName: String,
          andAgentPhone agentPhone: String,
          andImageFilename imageFilename: String?,
-         andNotes notes: [String]) {
+         andNotes notes: [String],
+         andAttributes attributes: [AddAttributes]) {
         self.id = id
         self.type = type
         self.status = status
@@ -44,5 +46,6 @@ class Add {
         self.agentPhone = agentPhone
         self.imageFilename = imageFilename
         self.notes = notes
+        self.attributes = attributes
     }
 }

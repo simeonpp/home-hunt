@@ -11,6 +11,8 @@
 		C803761C1E937138003A75FC /* ImageWithLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C803761B1E937138003A75FC /* ImageWithLoadingView.swift */; };
 		C803761E1E937902003A75FC /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C803761D1E937902003A75FC /* ImageData.swift */; };
 		C80376201E9381CB003A75FC /* ImageDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C803761F1E9381CB003A75FC /* ImageDataDelegate.swift */; };
+		C82745401EAE77F40034AA37 /* AddAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C827453F1EAE77F40034AA37 /* AddAttributes.swift */; };
+		C82745421EAE7B7D0034AA37 /* AddAttributesMappings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82745411EAE7B7D0034AA37 /* AddAttributesMappings.swift */; };
 		C831D0521E8FE2D800429D83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C831D0511E8FE2D800429D83 /* AppDelegate.swift */; };
 		C831D0571E8FE2D800429D83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C831D0551E8FE2D800429D83 /* Main.storyboard */; };
 		C831D05A1E8FE2D800429D83 /* HomeHunt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C831D0581E8FE2D800429D83 /* HomeHunt.xcdatamodeld */; };
@@ -72,6 +74,8 @@
 		C803761B1E937138003A75FC /* ImageWithLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageWithLoadingView.swift; path = Views/ImageWithLoadingView.swift; sourceTree = "<group>"; };
 		C803761D1E937902003A75FC /* ImageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageData.swift; path = Data/ImageData.swift; sourceTree = "<group>"; };
 		C803761F1E9381CB003A75FC /* ImageDataDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDataDelegate.swift; path = Data/Delegates/ImageDataDelegate.swift; sourceTree = "<group>"; };
+		C827453F1EAE77F40034AA37 /* AddAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddAttributes.swift; path = Models/AddAttributes.swift; sourceTree = "<group>"; };
+		C82745411EAE7B7D0034AA37 /* AddAttributesMappings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddAttributesMappings.swift; path = Models/Extensions/AddAttributesMappings.swift; sourceTree = "<group>"; };
 		C831D04E1E8FE2D800429D83 /* HomeHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C831D0511E8FE2D800429D83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C831D0561E8FE2D800429D83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 				C83A915F1E9130D7009FED12 /* Add.swift */,
 				C8F12D561E93FDD900FDE497 /* Appointment.swift */,
 				C87BBE351E94290800C448A9 /* Review.swift */,
+				C827453F1EAE77F40034AA37 /* AddAttributes.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				C83A91611E9132B8009FED12 /* AddMappings.swift */,
 				C8F12D581E93FEE800FDE497 /* AppointmentMappings.swift */,
 				C87BBE371E9429C000C448A9 /* ReviewMappings.swift */,
+				C82745411EAE7B7D0034AA37 /* AddAttributesMappings.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -476,12 +482,14 @@
 			files = (
 				C83A91691E91447C009FED12 /* AddsMasterViewController.swift in Sources */,
 				C899B55A1E90DA5A00B7B748 /* AgentMappings.swift in Sources */,
+				C82745401EAE77F40034AA37 /* AddAttributes.swift in Sources */,
 				C88E7D7B1E8FFE5E00081A18 /* HttpRequesterDelegate.swift in Sources */,
 				C83A915C1E911D88009FED12 /* BaseData.swift in Sources */,
 				C803761E1E937902003A75FC /* ImageData.swift in Sources */,
 				C899B5601E90DD9500B7B748 /* AgentsData.swift in Sources */,
 				C88E7D691E8FECB400081A18 /* LoginViewController.swift in Sources */,
 				C87BBE341E9428BC00C448A9 /* ReviewData.swift in Sources */,
+				C82745421EAE7B7D0034AA37 /* AddAttributesMappings.swift in Sources */,
 				C83A916B1E914610009FED12 /* AddDetailsViewController.swift in Sources */,
 				C8FB49A11E97625700CB6ADA /* DateHelper.swift in Sources */,
 				C83A916E1E91479A009FED12 /* AddTableViewCell.swift in Sources */,

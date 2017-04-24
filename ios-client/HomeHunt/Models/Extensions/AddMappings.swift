@@ -24,6 +24,15 @@ extension Add {
             }
         }
         
+        var attributes: [AddAttributes] = []
+        if (dict["attributes"] != nil) {
+            let attributesFromDict = dict["attributes"] as! [Dictionary<String, Any>]
+            for attributeDict in attributesFromDict {
+                let attribute = AddAttributes.init(withDict: attributeDict)
+                attributes.append(attribute)
+            }
+        }
+        
         self.init(withId: id,
                   andType: type,
                   andStatus: status,
@@ -37,6 +46,7 @@ extension Add {
                   andAgentLastName: agentLastName,
                   andAgentPhone: agentPhone,
                   andImageFilename: imageFilename,
-                  andNotes: notes)
+                  andNotes: notes,
+                  andAttributes: attributes)
     }
 }

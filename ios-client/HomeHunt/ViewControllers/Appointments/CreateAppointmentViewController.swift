@@ -12,7 +12,14 @@ class CreateAppointmentViewController: UIViewController, AppointmentDataDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
-        print(self.addId!)
+        
+        // Close keyboard
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubmitReviewViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     // Date picker
