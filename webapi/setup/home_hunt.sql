@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2017 at 10:05 PM
+-- Generation Time: Apr 24, 2017 at 09:47 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.8
 
@@ -44,8 +44,10 @@ CREATE TABLE `adds` (
 --
 
 INSERT INTO `adds` (`id`, `type`, `status`, `rating`, `ratingCount`, `description`, `town`, `address`, `agentId`, `dateCreated`) VALUES
-(1, 1, 1, 0, 0, 'lorem', 'Sofia', 'ul. Ivan Vazov 1', 1, '2017-04-01 12:55:00'),
-(2, 1, 1, 4, 1, 'lorem 2', 'Sofia', 'ul. Hristo Botev 3', 2, '2017-04-01 13:10:57');
+(1, 1, 2, 0, 0, 'Big and nice appartment', 'Sofia', 'ul. Ivan Vazov 1', 1, '2017-04-01 12:55:00'),
+(2, 1, 1, 4, 1, 'Very nice appartment', 'Sofia', 'ul. Hristo Botev 3', 4, '2017-04-01 13:10:57'),
+(4, 1, 1, 5, 1, 'Amazing appartment', 'Sofia', 'bul. Bulgaria 98 A', 3, '2017-04-10 22:29:51'),
+(5, 1, 2, 0, 0, 'Cool appartment', 'Sofia', 'bul. Alexandor Malinov 21', 2, '2017-04-11 22:30:45');
 
 -- --------------------------------------------------------
 
@@ -98,13 +100,15 @@ CREATE TABLE `adds_attribute_values` (
 --
 
 INSERT INTO `adds_attribute_values` (`id`, `addId`, `addAttributeTypeId`, `value`) VALUES
-(1, 1, 2, '120000'),
-(2, 1, 5, 'yes'),
-(3, 2, 3, '3'),
-(4, 1, 3, '3'),
-(24, 2, 13, '75'),
-(25, 2, 14, '42.69966739233835'),
-(26, 2, 15, '23.30356350170756');
+(30, 1, 3, '3'),
+(31, 1, 5, 'Yes'),
+(32, 1, 6, 'TEC'),
+(33, 2, 13, '101'),
+(34, 2, 14, '42.699706116731'),
+(35, 2, 15, '23.30353491941775'),
+(36, 4, 13, '112'),
+(37, 4, 14, '42.69970024939878'),
+(38, 4, 15, '23.30362955110455');
 
 -- --------------------------------------------------------
 
@@ -130,7 +134,9 @@ CREATE TABLE `adds_images` (
 
 INSERT INTO `adds_images` (`id`, `addId`, `filename`, `contentType`, `extension`, `size`, `width`, `height`, `isMain`) VALUES
 (1, 1, 'image1.jpg', 'application/png', 'jpg', 150000, 500, 350, 1),
-(2, 2, 'image2.jpg', 'application/png', 'jpg', 150000, 500, 300, 1);
+(2, 2, 'image2.jpg', 'application/png', 'jpg', 150000, 500, 300, 1),
+(3, 4, 'image4.jpg', 'application/png', 'jpg', 150000, 500, 350, 1),
+(4, 5, 'image3.jpg', 'application/png', 'jpg', 150000, 500, 300, 1);
 
 -- --------------------------------------------------------
 
@@ -198,8 +204,10 @@ CREATE TABLE `agents` (
 --
 
 INSERT INTO `agents` (`id`, `firstName`, `lastName`, `phone`, `email`, `company`, `rating`, `ratingCount`, `website`, `dateCreated`) VALUES
-(1, 'Denis', 'Lyjata', '+359 885 85 58 85', 'denis.lyjata@abv.bg', NULL, 0, 0, NULL, '2017-03-24 22:14:14'),
-(2, 'Misho', 'Tarikata', '+359 887 87 78 87', 'misho.tarikata@abv.b', NULL, 1, 1, NULL, '2017-04-01 12:20:28');
+(1, 'Denis', 'Lyjata', '+359 885 85 58 85', 'denis.lyjata@abv.bg', 'Nose OOD', 0, 0, 'www.denis.lyjata.com', '2017-03-24 22:14:14'),
+(2, 'Nasko', 'Mazilkata', '+359 882 22 55 33', 'nasko.mazilkata@abv.', 'Plaster God', 2, 1, 'www.plaster.com', '2017-05-11 22:28:37'),
+(3, 'Stancho', 'Boqdjiqta', '+359 886 66 77 66', 'stancho.boqdjiqta@ab', 'Paint & Colour', 3, 1, 'www.paint.bg', '2017-04-10 22:26:33'),
+(4, 'Misho', 'Tarikata', '+359 887 87 78 87', 'misho.tarikata@abv.b', 'Tarikati OOD', 0, 0, 'www.tarikat.bg', '2017-06-01 12:20:28');
 
 -- --------------------------------------------------------
 
@@ -222,10 +230,8 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`id`, `addId`, `agentId`, `status`, `date`, `note`, `dateCreated`) VALUES
-(56, 2, 2, 1, '2017-04-04 21:51:38', 'vccv', '2017-04-04 21:51:38'),
-(63, 2, 2, 1, '2017-04-21 08:16:00', 'Add add', '2017-04-20 09:17:32'),
-(65, 1, 1, 3, '2017-04-21 10:22:00', 'Some notes...', '2017-04-20 10:22:59'),
-(66, 2, 2, 1, '2017-04-25 18:30:00', 'Hoffman', '2017-04-23 22:38:11');
+(68, 2, 4, 1, '2017-04-06 18:30:00', 'Don''t be late', '2017-04-24 22:38:28'),
+(69, 4, 3, 1, '2017-04-05 22:00:00', 'Be on time', '2017-04-24 22:42:29');
 
 -- --------------------------------------------------------
 
@@ -266,8 +272,13 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`id`, `objectType`, `objectId`, `note`) VALUES
-(62, 'add', 2, '...'),
-(63, 'agent', 2, '...');
+(66, 'agent', 1, 'Mnogo lyje'),
+(67, 'agent', 1, 'Nekorekten i lyjliv'),
+(68, 'agent', 1, 'Ne mu vqrvaite'),
+(69, 'add', 2, 'Very nice '),
+(70, 'agent', 4, 'Korekten'),
+(71, 'add', 4, 'Cool'),
+(72, 'agent', 3, 'So so');
 
 -- --------------------------------------------------------
 
@@ -288,8 +299,7 @@ CREATE TABLE `sessions` (
 
 INSERT INTO `sessions` (`id`, `userId`, `cookie`, `expiresDate`) VALUES
 (12, 34, '3cd8ad4c-cbe7-487b-99b9-e0673f4b99e2', '2017-04-05 12:04:05'),
-(26, 35, '0b2e58bb-3fd5-4ec7-8e40-83d7401bd974', '2017-04-23 08:47:14'),
-(29, 1, 'b1eed081-efcb-43b9-b4a2-9e94e44b2ed3', '2017-04-26 21:42:31');
+(35, 1, '4b8db6ca-df46-4d0b-a8e4-e68ef41eaece', '2017-04-27 22:33:13');
 
 -- --------------------------------------------------------
 
@@ -310,8 +320,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `dateCreated`) VALUES
 (1, 'kolio', '123', '2017-03-28 22:26:30'),
-(34, 'misho', '123', '2017-04-02 12:03:52'),
-(35, 'mincho', '123', '2017-04-20 08:13:01');
+(34, 'misho', '123', '2017-04-02 12:03:52');
 
 --
 -- Indexes for dumped tables
@@ -409,7 +418,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `adds`
 --
 ALTER TABLE `adds`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `adds_attribute_types`
 --
@@ -419,12 +428,12 @@ ALTER TABLE `adds_attribute_types`
 -- AUTO_INCREMENT for table `adds_attribute_values`
 --
 ALTER TABLE `adds_attribute_values`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `adds_images`
 --
 ALTER TABLE `adds_images`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `adds_statuses`
 --
@@ -439,12 +448,12 @@ ALTER TABLE `adds_types`
 -- AUTO_INCREMENT for table `agents`
 --
 ALTER TABLE `agents`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 --
 -- AUTO_INCREMENT for table `appointments_statuses`
 --
@@ -454,12 +463,12 @@ ALTER TABLE `appointments_statuses`
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 --
 -- AUTO_INCREMENT for table `sessions`
 --
 ALTER TABLE `sessions`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `users`
 --
