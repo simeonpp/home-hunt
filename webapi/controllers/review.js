@@ -17,7 +17,7 @@ var addReview = {
         var addLat = request.payload.latitude;
         var addLong = request.payload.longitude;
 
-        var agentId = request.payload.addId;
+        var agentId = request.payload.agentId;
         var agentRating = request.payload.agentRating;
         var agentNote = request.payload.agentNote;
 
